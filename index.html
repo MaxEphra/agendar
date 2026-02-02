@@ -1,0 +1,1117 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agenda Vanessa Moreira - Manicure & Pedicure</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --rosa-claro: #fce4ec;
+            --rosa-medio: #f48fb1;
+            --rosa-escuro: #d81b60;
+            --rosa-suave: #ffebee;
+            --cinza-claro: #f5f5f5;
+            --cinza-texto: #555;
+            --branco: #ffffff;
+            --sombra: rgba(0, 0, 0, 0.08);
+        }
+
+        body {
+            background-color: var(--rosa-suave);
+            color: var(--cinza-texto);
+            line-height: 1.6;
+            padding-bottom: 80px;
+        }
+
+        /* Header com imagem circular */
+        header {
+            background: linear-gradient(to right, var(--rosa-escuro), var(--rosa-medio));
+            color: white;
+            text-align: center;
+            padding: 2rem 1rem 1.5rem;
+            border-radius: 0 0 20px 20px;
+            box-shadow: 0 4px 12px var(--sombra);
+            margin-bottom: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .profile-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 1rem;
+            height: 120px;
+        }
+
+        .profile-img {
+            width: 100px !important;
+            height: 100px !important;
+            border-radius: 50% !important;
+            object-fit: cover !important;
+            border: 3px solid white !important;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+            display: block !important;
+            margin: 0 auto !important;
+            max-width: 100% !important;
+            max-height: 100% !important;
+        }
+
+        h1 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+        }
+
+        header p {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        /* Cards */
+        .card {
+            background-color: var(--branco);
+            border-radius: 16px;
+            padding: 1.8rem;
+            margin: 1.5rem auto;
+            box-shadow: 0 6px 15px var(--sombra);
+            max-width: 900px;
+            width: 90%;
+            border-top: 5px solid var(--rosa-medio);
+        }
+
+        h2 {
+            color: var(--rosa-escuro);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--rosa-claro);
+            font-size: 1.8rem;
+        }
+
+        /* Lista de serviços */
+        .list {
+            list-style: none;
+        }
+
+        .list li {
+            display: flex;
+            justify-content: space-between;
+            padding: 1rem 0;
+            border-bottom: 1px dashed var(--rosa-claro);
+            transition: all 0.3s ease;
+        }
+
+        .list li:hover {
+            background-color: var(--rosa-claro);
+            padding-left: 10px;
+            border-radius: 8px;
+        }
+
+        .list li.highlight {
+            font-weight: 600;
+            color: var(--rosa-escuro);
+        }
+
+        .list li span {
+            background-color: var(--rosa-claro);
+            color: var(--rosa-escuro);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-weight: 600;
+        }
+
+        /* Formulário de agendamento */
+        label {
+            display: block;
+            margin: 1rem 0 0.5rem;
+            color: var(--rosa-escuro);
+            font-weight: 600;
+        }
+
+        select, input {
+            width: 100%;
+            padding: 0.9rem;
+            border: 2px solid var(--rosa-claro);
+            border-radius: 10px;
+            font-size: 1rem;
+            margin-bottom: 1rem;
+            transition: border 0.3s;
+        }
+
+        select:focus, input:focus {
+            outline: none;
+            border-color: var(--rosa-medio);
+        }
+
+        button {
+            background: linear-gradient(to right, var(--rosa-escuro), var(--rosa-medio));
+            color: white;
+            border: none;
+            padding: 1rem 1.8rem;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            width: 100%;
+            margin-top: 1rem;
+        }
+
+        button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 12px rgba(216, 27, 96, 0.3);
+        }
+
+        /* Formas de pagamento */
+        .payments {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 1rem;
+        }
+
+        .payments li {
+            background-color: var(--rosa-claro);
+            border-radius: 12px;
+            padding: 1.2rem;
+            flex: 1;
+            min-width: 150px;
+            text-align: center;
+            transition: all 0.3s;
+            border: 2px solid transparent;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .payments li:hover {
+            transform: translateY(-5px);
+            border-color: var(--rosa-medio);
+        }
+
+        .payment-icon {
+            width: 60px;
+            height: 60px;
+            margin-bottom: 0.8rem;
+            object-fit: contain;
+        }
+
+        /* Seção PIX */
+        .pix {
+            text-align: center;
+        }
+
+        .pix img {
+            max-width: 200px;
+            border-radius: 10px;
+            margin: 1rem auto;
+            display: block;
+            border: 1px solid #ddd;
+        }
+
+        #pixKey {
+            background-color: var(--cinza-claro);
+            font-family: monospace;
+            text-align: center;
+            cursor: pointer;
+            margin-bottom: 0;
+        }
+
+        #pixKey:hover {
+            background-color: #eee;
+        }
+
+        /* Mensagem de confirmação */
+        #msg {
+            margin-top: 1.5rem;
+            padding: 1rem;
+            border-radius: 10px;
+            text-align: center;
+            font-weight: 600;
+            display: none;
+        }
+
+        .success {
+            background-color: #e8f5e9;
+            color: #2e7d32;
+            border: 1px solid #a5d6a7;
+        }
+
+        .error {
+            background-color: #ffebee;
+            color: #c62828;
+            border: 1px solid #ef9a9a;
+        }
+
+        /* Botão fixo do WhatsApp */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background-color: #25d366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            z-index: 100;
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            background-color: #128c7e;
+        }
+
+        /* ===== ESTILOS PARA A SEÇÃO DE HORÁRIOS ===== */
+        .horario-info {
+            background-color: var(--rosa-claro);
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin-top: 1rem;
+            border-left: 4px solid var(--rosa-medio);
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .horario-info h3 {
+            color: var(--rosa-escuro);
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+            text-align: center;
+            border-bottom: 2px dashed var(--rosa-medio);
+            padding-bottom: 0.5rem;
+        }
+
+        .dia-grupo {
+            margin-bottom: 1.8rem;
+            background-color: white;
+            padding: 1.2rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .dia-grupo:last-child {
+            margin-bottom: 0;
+        }
+
+        .dia-grupo h4 {
+            color: var(--rosa-escuro);
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            text-align: center;
+        }
+
+        /* Container de botões HORIZONTAL - MOSTRA TODOS OS BOTÕES */
+        .horarios-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            justify-content: center;
+            padding: 0.5rem;
+        }
+
+        /* Botões de horário INTERATIVOS - CORES ROSAS */
+        .hora-btn {
+            padding: 0.6rem 1rem;
+            border: none;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            min-width: 70px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            display: inline-block;
+            margin: 2px;
+            pointer-events: auto;
+        }
+
+        /* CORES ROSAS para disponível */
+        .hora-btn.disponivel {
+            background: linear-gradient(to right, var(--rosa-escuro), var(--rosa-medio));
+            color: white !important;
+        }
+
+        .hora-btn.disponivel:hover {
+            background: linear-gradient(to right, #c2185b, #e91e63);
+            transform: translateY(-2px);
+        }
+
+        /* CORES ROSAS para bloqueado - mais apagado */
+        .hora-btn.bloqueado {
+            background: linear-gradient(to right, #f8bbd9, #f8bbd9);
+            color: #9e9e9e !important;
+            cursor: not-allowed;
+            opacity: 0.7;
+            text-decoration: line-through;
+        }
+
+        /* CORES para selecionado - mais escuro */
+        .hora-btn.selecionado {
+            background: linear-gradient(to right, #880e4f, #ad1457);
+            color: white !important;
+            transform: scale(1.05);
+            box-shadow: 0 0 10px rgba(136, 14, 79, 0.5);
+        }
+
+        /* BOTÕES DE SERVIÇOS - em coluna horizontal */
+        .servicos-container {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+            margin: 1.5rem 0;
+        }
+
+        .servico-btn {
+            padding: 1rem;
+            border: 2px solid var(--rosa-claro);
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+            background-color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .servico-btn:hover {
+            border-color: var(--rosa-medio);
+            background-color: var(--rosa-claro);
+        }
+
+        .servico-btn.selecionado {
+            background: linear-gradient(to right, var(--rosa-escuro), var(--rosa-medio));
+            color: white !important;
+            border-color: var(--rosa-escuro);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(216, 27, 96, 0.2);
+        }
+
+        .servico-preco {
+            background-color: var(--rosa-claro);
+            color: var(--rosa-escuro);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .servico-btn.selecionado .servico-preco {
+            background-color: rgba(255, 255, 255, 0.3);
+            color: white;
+        }
+
+        /* CORES ESPECÍFICAS PARA CADA SERVIÇO */
+        
+        /* Manicure Simples - Rosa padrão */
+        .servico-btn[data-servico="Manicure Simples"] span:first-child {
+            color: var(--branco);
+            font-weight: 700;
+        }
+
+        .servico-btn.selecionado[data-servico="Manicure Simples"] span:first-child {
+            color: white !important;
+        }
+
+        /* Manicure com Francesinha - Rosa mais vibrante */
+        .servico-btn[data-servico="Manicure com Francesinha"] span:first-child {
+            color: white; /* Rosa vibrante */
+            font-weight: 700;
+        }
+
+        .servico-btn[data-servico="Manicure com Francesinha"] span:first-child::after {
+            content: " ✨";
+            font-size: 0.9em;
+        }
+
+        .servico-btn.selecionado[data-servico="Manicure com Francesinha"] span:first-child {
+            color: white !important;
+        }
+
+        /* Pedicure Simples - Rosa médio */
+        .servico-btn[data-servico="Pedicure Simples"] span:first-child {
+            color: white; /* Rosa médio */
+            font-weight: 700;
+        }
+
+        .servico-btn.selecionado[data-servico="Pedicure Simples"] span:first-child {
+            color: white !important;
+        }
+
+        /* Pedicure com Francesinha - Rosa escuro especial */
+        .servico-btn[data-servico="Pedicure com Francesinha"] span:first-child {
+            color: white; /* Rosa escuro especial */
+            font-weight: 800;
+            position: relative;
+        }
+
+        /* Adiciona um pequeno efeito decorativo para Pedicure Francesinha */
+        .servico-btn[data-servico="Pedicure com Francesinha"] span:first-child::after {
+            content: " ✨";
+            font-size: 0.9em;
+        }
+
+        .servico-btn.selecionado[data-servico="Pedicure com Francesinha"] span:first-child {
+            color: white !important;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+        }
+
+        /* Pacote Mão e Pé Simples - Rosa profundo */
+        .servico-btn[data-servico="Pacote Mão e Pé Simples"] span:first-child {
+            color: white; /* Rosa profundo */
+            font-weight: 700;
+        }
+
+        .servico-btn.selecionado[data-servico="Pacote Mão e Pé Simples"] span:first-child {
+            color: white !important;
+        }
+
+        /* Campos ocultos para armazenar seleção */
+        #selectedDay, #selectedHour, #selectedService {
+            display: none;
+        }
+
+        /* Feedback visual para seleção */
+        .selection-info {
+            background-color: #e3f2fd;
+            padding: 1rem;
+            border-radius: 10px;
+            margin: 1rem 0;
+            text-align: center;
+            border: 1px solid #bbdefb;
+            display: none;
+        }
+
+        .selection-info span {
+            font-weight: bold;
+            color: #1976d2;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            margin-top: 2rem;
+            color: var(--rosa-escuro);
+            font-weight: 600;
+            border-top: 1px solid var(--rosa-claro);
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .profile-img {
+                width: 90px !important;
+                height: 90px !important;
+            }
+            
+            .profile-container {
+                height: 110px;
+            }
+            
+            .payments {
+                flex-direction: column;
+            }
+            
+            .payments li {
+                min-width: 100%;
+            }
+            
+            .card {
+                width: 95%;
+                padding: 1.5rem;
+            }
+            
+            h1 {
+                font-size: 1.6rem;
+            }
+            
+            .whatsapp-float {
+                bottom: 1rem;
+                right: 1rem;
+                width: 55px;
+                height: 55px;
+                font-size: 1.8rem;
+            }
+            
+            .payment-icon {
+                font-size: 2rem;
+            }
+            
+            /* Responsividade para horários */
+            .horarios-container {
+                gap: 0.6rem;
+            }
+            
+            .hora-btn {
+                padding: 0.5rem 0.8rem;
+                min-width: 65px;
+                font-size: 0.85rem;
+            }
+            
+            .servicos-container {
+                gap: 0.6rem;
+            }
+            
+            .servico-btn {
+                padding: 0.8rem;
+                font-size: 0.9rem;
+            }
+            
+            .servico-preco {
+                font-size: 0.8rem;
+                padding: 0.2rem 0.6rem;
+            }
+        }
+        
+        /* Ajuste para telas muito pequenas */
+        @media (max-width: 480px) {
+            .profile-img {
+                width: 80px !important;
+                height: 80px !important;
+            }
+            
+            .profile-container {
+                height: 100px;
+            }
+            
+            /* Ajuste para horários em telas muito pequenas */
+            .horarios-container {
+                gap: 0.5rem;
+            }
+            
+            .hora-btn {
+                padding: 0.4rem 0.7rem;
+                min-width: 60px;
+                font-size: 0.8rem;
+            }
+            
+            .servico-btn {
+                padding: 0.7rem;
+                font-size: 0.85rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="profile-container">
+            <img src="./vane.jpeg" alt="Foto da Manicure Vanessa Moreira" class="profile-img">
+        </div>
+        <h1>Vanessa Moreira</h1>
+        <p>Cuidado, beleza e profissionalismo para suas mãos e pés</p>
+    </header>
+
+    <section class="card">
+        <h2>Nossos Serviços</h2>
+        <ul class="list">
+            <li class="highlight">Manicure Simples <span>R$ 35,00</span></li>
+            <li class="highlight">Manicure com Francesinha <span>R$ 40,00</span></li>
+            <li class="highlight">Pedicure Simples <span>R$ 40,00</span></li>
+            <li class="highlight">Pedicure com Francesinha <span>R$ 45,00</span></li>
+            <li class="highlight">Pacote Mão e Pé Simples <span>R$ 70,00</span></li>
+        </ul>
+    </section>
+
+    <section class="card">
+        <h2>Agendamento</h2>
+        
+        <!-- Informação da seleção atual -->
+        <div class="selection-info" id="selectionInfo">
+            <p>Seleção atual: <span id="selectedInfoText">Nenhum horário e serviço selecionado</span></p>
+        </div>
+        
+        <!-- Campos ocultos para armazenar a seleção -->
+        <input type="hidden" id="selectedDay" value="">
+        <input type="hidden" id="selectedHour" value="">
+        <input type="hidden" id="selectedService" value="">
+        <input type="hidden" id="selectedPreco" value="">
+        
+        <!-- SEÇÃO DE HORÁRIOS COMPLETA -->
+        <div class="horario-info">
+            <h3>Selecione: DIA | HORÁRIO | SERVIÇO</h3>
+            
+            <!-- QUINTA-FEIRA - 3 BOTÕES HORIZONTAIS -->
+            <div class="dia-grupo">
+                <h4>Quinta-feira</h4>
+                <div class="horarios-container">
+                    <button class="hora-btn disponivel" data-dia="Quinta-feira" data-hora="17:00">17h</button>
+                    <button class="hora-btn disponivel" data-dia="Quinta-feira" data-hora="18:00">18h</button>
+                    <button class="hora-btn bloqueado" data-dia="Quinta-feira" data-hora="19:00">19h</button>
+                </div>
+            </div>
+            
+            <!-- SEXTA-FEIRA - 3 BOTÕES HORIZONTAIS -->
+            <div class="dia-grupo">
+                <h4>Sexta-feira</h4>
+                <div class="horarios-container">
+                    <button class="hora-btn bloqueado" data-dia="Sexta-feira" data-hora="17:00">17h</button>
+                    <button class="hora-btn disponivel" data-dia="Sexta-feira" data-hora="18:00">18h</button>
+                    <button class="hora-btn disponivel" data-dia="Sexta-feira" data-hora="19:00">19h</button>
+                </div>
+            </div>
+            
+            <!-- SÁBADO - 7 BOTÕES HORIZONTAIS -->
+            <div class="dia-grupo">
+                <h4>Sábado</h4>
+                <div class="horarios-container">
+                    <button class="hora-btn disponivel" data-dia="Sábado" data-hora="10:00">10h</button>
+                    <button class="hora-btn disponivel" data-dia="Sábado" data-hora="11:00">11h</button>
+                    <button class="hora-btn disponivel" data-dia="Sábado" data-hora="12:00">12h</button>
+                    <button class="hora-btn disponivel" data-dia="Sábado" data-hora="14:00">14h</button>
+                    <button class="hora-btn disponivel" data-dia="Sábado" data-hora="15:00">15h</button>
+                    <button class="hora-btn bloqueado" data-dia="Sábado" data-hora="16:00">16h</button>
+                    <button class="hora-btn bloqueado" data-dia="Sábado" data-hora="17:00">17h</button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- SEÇÃO DE SERVIÇOS COM BOTÕES -->
+        <div style="margin-top: 2rem;">
+            <h3 style="color: var(--rosa-escuro); margin-bottom: 1rem; text-align: center;">Escolha o Serviço</h3>
+            <div class="servicos-container">
+                <button class="servico-btn" data-servico="Manicure Simples" data-preco="R$ 35,00">
+                    <span>Manicure Simples</span>
+                    <span class="servico-preco">R$ 35,00</span>
+                </button>
+                <button class="servico-btn" data-servico="Manicure com Francesinha" data-preco="R$ 40,00">
+                    <span>Manicure com Francesinha</span>
+                    <span class="servico-preco">R$ 40,00</span>
+                </button>
+                <button class="servico-btn" data-servico="Pedicure Simples" data-preco="R$ 40,00">
+                    <span>Pedicure Simples</span>
+                    <span class="servico-preco">R$ 40,00</span>
+                </button>
+                <button class="servico-btn" data-servico="Pedicure com Francesinha" data-preco="R$ 45,00">
+                    <span>Pedicure com Francesinha</span>
+                    <span class="servico-preco">R$ 45,00</span>
+                </button>
+                <button class="servico-btn" data-servico="Pacote Mão e Pé Simples" data-preco="R$ 70,00">
+                    <span>Pacote Mão e Pé Simples</span>
+                    <span class="servico-preco">R$ 70,00</span>
+                </button>
+            </div>
+        </div>
+        
+        <!-- FORMULÁRIO PARA DADOS DO CLIENTE -->
+        <div style="margin-top: 2rem;">
+            <h3 style="color: var(--rosa-escuro); margin-bottom: 1rem; text-align: center;">Seus Dados</h3>
+            
+            <label for="name">Seu Nome</label>
+            <input type="text" id="name" placeholder="Digite seu nome completo">
+            
+            <label for="phone">Seu Telefone para Contato</label>
+            <input type="tel" id="phone" placeholder="(11) 99999-9999">
+        </div>
+
+        <button onclick="agendar()">Confirmar Agendamento</button>
+
+        <p id="msg"></p>
+    </section>
+
+    <section class="card">
+        <h2>Formas de Pagamento</h2>
+        <ul class="payments">
+            <li>
+                <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBwgHBgkIBwgKCgkLDRYPDQwMDRsUFRAWIB0iIiAdHx8kKDQsJCYxJx8fLT0tMTU3Ojo6Iys/RD84QzQ5OjcBCgoKDQwNGg8PGjclHyU3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3N//AABEIAJQA1QMBIgACEQEDEQH/xAAcAAABBQEBAQAAAAAAAAAAAAAAAQIDBAUGBwj/xAA9EAACAQMDAQUGAwcCBgMAAAABAgMABBEFEiExBhNBUWEicYGRocEUsdEjMkJSYuHwBxUWM3KSovFEY5P/xAAZAQEAAwEBAAAAAAAAAAAAAAAAAQIDBAX/xAAmEQACAgEDAwQDAQAAAAAAAAAAAQIRAxIhMQRBURMUImEjcbEy/9oADAMBAAIRAxEAPwD2WiiioJFoopakgKKKKAUUUmcVmXGsIjFbdQ5H8ROBUqLlwVlJR5NWisMavI/SRQScbRirUN5cnBeMEeZOKu8UkiqyxZpUVVjvomOGDIenPIPxqyCCMggj31RxaLqSfAtFFFVLBRRRQBRRRQgKKQsq/vECopLlEGeT7qmmG0TUVSa8dcPtG3y+PWrcbh1yvQjPNS4tKyFJN0h1FFFVLBRRRQBRRRQEdLRRQBS0lKKAKKKKAztenMFgdpwXIXI8B41y9hDNqU792m6NT0zhV46E+fuzW/2oXfFbRMcIZCW9QB0+1SWTYgVVRVX+XwFdGOWmJzzjqluRW1qUXgWwY/0MfrgUstz3EgSWJoy3Ro/aU1bjhiTLRxhG8dvQ0XUffQsrpvUr4DkfL8x8qlS33Icdii8gzjO8HnaOvwpBJJEO8gkIHy+YrOkgbvcSFgignJOTn0alju+6k24MngSo6jw4NbaUzG2tzZg1gA7Z4zj+ZP0rQt7uC53dy+7acHjFcr3oONp3jrir3Z998kgOVwx68/wiufPDRTXk3xZG3R0O4CkMqjwas3UNTtLEgXMwViAQgBJIPpVTTdeg1C6MMUTovdtJvcjGBjyPrVVidWX9TejZe4wPZX51UkupmfCnaPSsY6zd6jeta6PHECgy0sucAdM49fKqCavqNlq34bUmhkiDqkiKnJLYIYemCDWihV+SjndG9e6jDZJvvpxGpPs7jy3uHWs1e1mnmUx/t1UYzI0fsjPxz9KxYcah2tVrod4neMoD9AFB2j6ZNWO18MX4u1dUBZkYFV6MOME+7JrSEIpqL5ZnKbptHVSndbsw5yMjFWNOfKqPArVLSEZdJtVkBL90ASauWWFK46biB7jVJ8UWj/qy/RS0VynUJRS0UAlFLRQEdFLRQCUopKWgCiijNAYuugveWozwqlj8xiop7l7W172OPvJCQFUnArM7ZLcT6rbQ25KoEUsR5knFXtQjmme3gjBYINzk4HWumC2RzzlViw6leRy91dRQI23dgMRx8av22s2jNtkBR/Me0Pfkc/So4JrWYDvNq+QcDn3GtCMW6piNFHntFJafAjq8mZqSxxjv7flXOXQHhvUA+P51hXMyC5M9uhO1cso4PBz/AIP8HQakEDKyEg/y+Fc+jvLeTLI52hwhwufDPzrXHHYyyS3FSOS5mk/DMndABywPAz4Vf7LNma7ByWDDr45FUiFslbu3zC5CtxgocH/M+lPtppbS3uJ0dVdkiY8ZwuT9qy6ltwX7ROJVNv6OolhidxI0abwu0MVGR6CuF7PRtPdTpHnfJZyIHPBJyvSuuTWNOlwyXKkeWDn8qzrM6HY3Hf2rSGUIU3e2QAcZ68eAq8NSTVEzcW07Mfs7fQ6ZdTpeAwK6gfulipB8cZ6/apBby61rv4qKJhaBxumbwVQOB6k/LPpWxcarZP7QtTIRzvkAFY+odp79JDFZwwoo4zyT8uPvUtTbutysZR4uy7f9nTNfm6s5zEzMX2nOFb+YEc0kVlY2kvfazqKzzDoHbGceGOvw/OucuNQ1KaJu+u5Rk8jfxz5BRUMUTpuPLZAOSnPzNTGE+7EpRS2PQYNStrqJXtyXRsjAQjGPQj/PSq+m3BiZldsrlSPZPs+Hl9z41jaPcH/bClwZCFlJZc43dOuOT188Dxq7buS7RsQpZW46DgnHp59PLk1nJU2jSDtJnXmkpsT95Gjj+JQfpT65ToEopaKEiUUtFAR0UUUAUlLSVJAUZoooDlO0V00OrqAoYttPtcAbVyMn3mq1vP8AiZjNNFPfsv7vcj9gi+B8s+81L2ige41AyIA2xwrKRnI4zx5cUyKaz3l5I5Z+fGYqPgo4Arsivicc29Rqi+TuFxbvtHG0oMD3UxJkRj3feKB7+Kq3OoRGMLHHFCD4GQA1CtwGbBlh6Y4YfrV1Eo5MtTXH8ZLMPfWLCdtzvaRo1Vt2M84x4DzwKuvbs55mTb6MPtURt1NzANjbA+C2zA6ZPXrWka4Mpt8i3E73cW2OPmXG6MjxPkPrS/8AOjurdiMiFM8+Ct15+NRBBaSvGpBZGO1c4AHOBTreF0mvHZsM9qR7XG0qV8/UmubqlUNvK/ptglb3+/4V4WQKw2lWZj7IHB5/L61KEVDzgt19pfaHrio1jyVa29obsIx44A5PPTwqRQqeyoyx6noD6V6FbHnt23XAkj5OeSy9B/6qhqEDK25sDcQcMwBPz/StVByUKqpxnagINZGsSJ3gRXAHOMAdaiW6LwtSKzmTxVgQ3Oc5+Z/tUgf9nhc5IxnBJ6+/FVVkXhSpJ8Aq804yK5VSm09CHYY6+WRWf0bvmzo9AeSWKVEJYpKpYA9OnjkDw/StRSI7mPcV9o8kHPXx/e8/f+uF2d9mSVFXcGA4jjLAc+ldC0KvaxuQUcEkEggjHTr061zZF82dON1BGrDexW1pEJd+cEeyC3Q+lXkdZEDIQQehFcv2jnltbKMxEDdPtJ25wGGfsa0eylw8+nMkp3NE2N3mCK4pP5UdqXws2aKXFGKECUUUUBHRRSUApppNBpjGpIHbqjluYYY2klcKijLEmqV7fwWqEyOCR0XxNc5fXE2sRMhUrBlgobgejA+7wqrlRdQfc14Ns9y9yCcSElARzitONQEIZFw3UgYrKstywiNVUsgAC5C4AGBwT6U+aC+l4kyqfypzXSlxuc0nXYiv+z3fSFrUjDc4NYNzbS2dwY3GMcgEdfjW7HFLbkNFJIpHh/anXc0d4gachZY+A4HDeeRWyckzF6Svp5LqMxjOPA5pl+rpJwj9y7AyOnOw8jGPLmppJfw1uTEhEh6MeQPWqUKyh1kjbDDrjpj19KuubM5q1QxYZJihaVUB5Xd4nz+3wqSCEG9d0kDNJbSL3YbdzwePGju7wSLstUXYepOOc5p9pam11NboHkrJhB0XjPXx6elY9Y/wyZOCPzoZHFJHHFCuFbbubeMY8efpTQHlbMSu8ecc5O4/9I8K61pg8YOSDgEjwpEly/dqMlhktnp5Vp7h80V9qlsmci9nctIQIJhk8nb0HvOBUUmh3MzcpFARx3kr5+ldjIjblMrq3GMDIyetRSSQ28kSsNrzMVjyOWIBJx8Aae4bJXSq+TlrHsxG7uLu7aYoMlEQKOPPOc1q2ej2NpylnFt8C65JPxq7e3fczWsZBZriQopzwpCs32NSMCw/aHcOuB7qzeRvk29OhyMETYqgDwAPH5UyZv2J3KRk+fSo5Nrqio23eOCeduKmTb3Wxug8/Q0TQaZmdprcXWgSsOqokg8xtP6GrHYVX/2tpJDksQM+eM/rVwwLcWbW7dGV4z8RxVjQ7X8JplvERg7MketceSH5dR145fjo0KQil8KTNSQFFJRQEZpKDTGNCRWZVUs3CgcnyrFk1u1a4e3llCEHA38K3uNQ9ptR7hEVJkUMdriTO0D4AnNcqVvXG6ORLpD12YnBHzDj5n3VnJ9kbQiuWdHLp8NxKZjM8wVt3dSNvAPp5dfyrP1u0vLgKtrKiwgjdCRjx6ZHGPTFYsN2I5CIxJbsvH7FtwHvXhh/2mrQ1G9ICJNHIP4gRzjz48feBVErNG6NK61hLVTHEwznllGWc+n61z1/2xjtmKz3UaN/K0hJ+QIrM7RSzPbBbZmR5jjeByF8h+VcBe2yQSFZldGIzwCRjzr04/R5ckr3PQ07fWIlAa+jQj+ZSPvW3Zdrob3Ailgk8mjk5+ua8SkaCRdj5wOhxTHsozH3to/tjybmp3CUT6Gi1mDcFmty4PX29rH8wfmK3bHU9PZVWHKE9ARg/wB6+b9K7Saxp/sNdNNH4x3Ht/XrXWaN21t7g7bi3mtn8WB3xk+vj8xUVfJFVwe4NBBdRE7Sp/hOORWMIZYp27yMMu1tsi9G4IIrldO7RB8CO5S4jPUd5yp/z1rdsNWtXlVHchm6Bvr9Kx6hacE9+xMPlkWx1FuNgyxzgYp+4HLeNVTqumsu43cXmpzUMmsaeqk/i4z6KD+lFui/AzVGIv8ASTn/AOS2f/xkqLVWzdaW48LzB9MxSD71WvtZsJXtZF79jby94Aqfveyy45/6s/Cql7r8dwE22bN3MgkRmkAAIBwSBz41YWaWsqC+nuOiXagemVdfvVyRu7VicdOpIAHvNcbd65e3G1VmgiC9O6QM3zx1qkBcyMzr+IkJ53PIQfnnOKnQ6F2da+sWVvD+0O5lH8P61UbtIjAra2+8vnJZsDHv/TNc9JbyKFLvBDk9Qc+Hr4/Gn20CXNyEFwZXfjEa8/58atFJbkNdjqNL7RwXE4h2MCcNlfa54+NdcrgjIHXw8qwNJtBZx4UBSeWx41sIxPJ/KsMklJ7GsY0Wc8UmKap4pc1mWFxRSZpaEkNMkHBxUlIRQHJ9qklkh9m2kLAcMkmMfCvNrzWL+znJurDvwD/zE9iT5jr8a9wkhRhytZd9odpcriSCN/eKq4JmsclbHlEfa6yugsdzPhuixahESAfRwMitBLuLYHCSiIHKvCwuIvgOSPp7629Y7B2U27ZDtz5HIrj7zsJdWEpl024e3b/63K/Q8VCTRbVFmywtdRtykEsb4J2vnr/SfDI6Vh3djjMF1AXHJ6cj1FZu3tBpM4kaFLjHXcMbvfjr8av2/bNVUR6pZPFjg7l3r9f1rrx51FVI5MvTtu4mNd6Nbq3sFiD4MvIqoNHJYiFSSOSVXp8a7SPWdFuMMtqsmT7OE9/9XH5VJHrkEKgW2nMkROAzRqqk+e4kj61r6+My9tl7nIWfZ25nlbNvI3OAufzxWt/wled1+0MVvH02lgorbk1LVLiNmsRbsPBe85z4Z6D5mktkvJXA1GcplfaWJQu08+OMn4E1V9QvBZdK+7ML/g60i9ue/EY84wc/Op9Kn0/S764cazcXCw2jsVlk3bCSBlRz8q2puzOm3p5SR2PGHlL/AEY1Ja/6e2iMHWGJW8AFx9D9q5OoyyyRcToxYIwd2YsHa3Q4AoF9K7DjJEnPwVakbtvpZyBM7eZEEvH0rei7CafbLgbEycZeH18SfvSt2HglOzdGqq2e+t2wemOVxg1Hrsv6ETnj230k/us758Ftn4+dB7X2kp2qlzn+m1UH5k11cfYmzhjPfXClR1kkTGB8hVU6Pp8EnKAW54DbMNL7vECpWZ9g8Ee5l2mqn8P3xS8AORGG2AufIYp8GpxXM00UsMmYlVz3k/HP08KvanFFap37gFgAERfAeQ99ZFjYSzTPcXKjMjAlMdAOgqJZZvgenBGvp/dXcgS1soggOO9b7Yxmuu0qytbdw8cIEn82f71i2EITAUY9wrfsg2elaXKqKtR5NePmrUfSq0INW0FVKkg6U6kAp1QAooxRQDaSlooBtNYVIRSEUBXdAapz28UgO9c1oMuaikgJFSDmb7SLSU9MGse57OWkgIYKfetdlNZFvHFVH06Q59qhZM85vewtg5zbloG65iJHNY1z2d7QaeMWk63cSncFbrx6f2r1o6TIR1FM/wBlc9SKjSmW1njI1OexljTUtMmtxH1a3BUn5fbFbmldotMkVY47zBXolyhQ+4MvT4ivRpezqzDEpVx/UuaxNR/0502857lUfzUYqunwXU0MgvoNodoyAeki4ZfnHx81NaUEysm6B22D+ONt6r8Bkf8AjXIXH+n+rabIJtLvJkYdMGqUlz2i06TdqFgLkLwZFUq3zBB+tZShLwWVdj0SO5m5KtFKvi0QPH/bnHxAoE8bgtNB7JP72Mj4sn3riLXtfbuyrdmSFxwPxKZHwcYauksdQg1A7WkllU42tA4kZfUHh/gc1CL6TQvpO4txJGJJTjcveSbsnwC8daw55HnuUl2D8Zt2FFYkKOvuzzn5Z6YrTuvxFxMtmkstwEXBZsbvTLdB68Vp6b2fW3jy7HeepraNVRlJ09zEi01XIa5bMhGfdVyLToQBW8NIj/mNSrpaDo1aLYzcrMmC0jU8GtKCNVAwKnXTwp61OlpgdamygRDirCUiQ7alVMVUgUU7FKBS0AzPpS0/FJUAjooooSFIaWkNAIaaafTTQETdabT2FMqRQUmKWjFBQmKSn4pQtAR4FRSW0Ugw8an4Va7ulEVCbOdv+yml3ue8t0yfGsYf6e2sM4ktJZI8HPDYIrve5pe5PnUUWU2jJ03SorKNQpLN4k9TWiF8PDyqXuj50ndnyoirdjMYpwpdh8qNpFSVFFOFIKcKAUCnAUi08VAAClxSUtAFFFFARUlFFCQpDRRQB4UlFFAMNNooqSRKUUtFAx2BTgBRRQqPAFOAFFFQBcUoFFFABFJiiigDAppAoooAAFJS0UA4UopKKAcKWiigCiiigP/Z" alt="Dinheiro" class="payment-icon">
+                Dinheiro
+            </li>
+            <li>
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUCAMAAABC4vDmAAAAQlBMVEX///9NtqxHtKpAsqjz+vn4/Px6xr9SuK6t2tXn9PPc7+1aurHP6eac083H5eJyw7tmv7aRz8gwrqO23tqDycHA4t4yvIkXAAAETUlEQVR4nO2c25KDIAyGK4gn6rH6/q+6aEdFixJOmp0xF3uxs2X/fkAgIfB6PfbYY//Y8iprk7pO2qzK79byNTbUnFBKhImfvB7Y3YpecZZ2JJKMdGkW36vp3dCNpEkWbd43SmJl9yPpS6u8rQ/jhKokjUaTm7owrg81CVX1LariWtl1SxfeoeqU002stJqEquZiVSdj/DZWrAFoupgViNOk6jrPAOR0KSsG5XQhK8YNNAlV/IIVx4jTl1VwVYacLmFlzOkCVgbz7jJWVpwmVeF8uyWnSVUTiBXYj1/IKrbn9GUVQJUTp9EC7PocOQVh5cwpACvAPhNiXll50uR1DnrT5FEVS6I0FcH4aUSlt7EB0Y6ndZDFcZwXQ8nVMTpQUsfLochFU35dOyv6yFIWifoi2JpcJJ2Npi4pQima7EOMYRHyCSpJWJUaqiJR5VUAW0z6ZW7GipBc16KRxW0yW5uto6IwYUVS6YOZ1KClvxJrMFmM0mbphRw+CUm0cKoaKrdnt+Ls976E9nM7YFYkmjmJFX37GVpb9KBi70v4/C9ymCqSzpwK/vMBi2hCGSNI/wTSgysn5ZcwjrwOYk4SzcloAKv1K7zVX8GQ1WEstQ5cLSuJ05ETMWJ1EpsTAmQlcTp2bJSD5+BpzAlkJXE6+zNwpkgTI0jj6ndKLX/ENeNpUQXzV9rYXGJ11IOrH9c6WhArQCylZQXmNKnSswLFUisIhVOUnSzI9Wv37cAY4ZTVygm4HGlYgeMWadDsVUluH7pEnrIyiKUOWUmc4JuJE1Wac6mdqlS5sFlwmj52pMowT6dkZTTvZDtacUrDOFjBypLTpKpUaXobR0/SUvJlZTWeZusUp+FxYx5oknTtQSqsWfrOlNPYmMIxZDZJjJUVG9p2KZOw4CSMZntNzOK7RTIreSDYtrUf64NVPC6zWsyOk7Bu2LVk4qK2qvasLDmNTdXblnJu2dBPWF7ZchLGtzVFlUtGjCZLY7lTwpZssw5Wc29VFfWfd56/P33q1s52/rWumXs6mWMGkrYbUYljc36MJH4mn1fbTT+UolB2H8qBjtIl4HCedOs8XZaZrR8+SWdobbfMoFyQcW5dUG7y3LfDZel9O+wlcOC+AweUIRbOYBRn2I4ywYEzFYQzaeY9vQhjpU3FeknEpn4TsThT1jiT+ziPQXAeGOE8WvN0CEm0rAwPbDEe1+I82MZZAvDr292KJVi/L5awKzljCMtKfBXgrLtcHwU4OEuVlGac/fVd1KWwj3m6h9Cw5W+FXRlqwEJBVCWVKItPUZbpoixoxln6jbNIHud1ApwXLzywCnKdx+HSUyBOo2G89oTzgpgDq6DXWS3nYOALmhivZ+K8yIrzyi/Oy9E4r5HjvHCP82kCnI844HzuAufDIDifUMH52AzOZ3lwPmCE86mnF8pHsV44nw977R5aoygeWptsfJKur+sez5N0jz32mJ39AZ9STQv2qn21AAAAAElFTkSuQmCC" alt="PIX" class="payment-icon">
+                PIX
+            </li>
+            <li>
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQwIqU2UIWQhqcpOCY71dYpu0NGyCPHe50C8g&s" alt="Cartão de Débito" class="payment-icon">
+                Débito (com taxa)
+            </li>
+            <li>
+                <img src="data:image/jpeg;base64,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" alt="Cartão de Crédito" class="payment-icon">
+                Crédito (com taxa)
+            </li>
+        </ul>
+    </section>
+
+    <section class="card pix">
+        <h2>Pagamento via PIX</h2>
+        <p>Use o QR Code abaixo ou a chave PIX para pagamento</p>
+        
+        <!-- QR Code -->
+        <img src="./qrvane.jpeg" alt="QR Code PIX" id="qrCodeImage">
+        <p><small>leia o QR-CODE, ou copie a chave pix</small></p>
+        
+        <input type="text" id="pixKey" value="00020126330014BR.GOV.BCB.PIX0111413509868105204000053039865802BR5924Vanessa Moreira da Silva6009SAO PAULO62140510rTCvA8tLM263044DDD" readonly>
+        <button onclick="copyPix()">Copiar chave PIX</button>
+        <p style="margin-top: 0.5rem; font-size: 0.9rem; color: #777;">Após o pagamento, envie o comprovante para o WhatsApp</p>
+    </section>
+
+    <a href="https://wa.me/5511993909244?text=Olá!%20Gostaria%20de%20agendar%20um%20horário%20para%20manicure/pedicure" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <footer>
+        © 2025 • Vanessa Moreira • (11) 99390-9244
+    </footer>
+
+    <script>
+        // Dados dos horários disponíveis e bloqueados
+        const horariosDisponiveis = {
+            "Quinta-feira": ["17:00", "18:00", "19:00"],
+            "Sexta-feira": ["18:00", "19:00"], // 17:00 está bloqueado
+            "Sábado": ["10:00", "11:00", "12:00", "14:00", "15:00", "17:00"] // 16:00 está bloqueado
+        };
+
+        // Horários bloqueados manualmente (para referência)
+        const horariosBloqueados = {
+            "Quinta-feira": [],
+            "Sexta-feira": ["17:00"],
+            "Sábado": ["16:00"]
+        };
+
+        // Variáveis para armazenar a seleção atual
+        let horarioSelecionado = null;
+        let diaSelecionado = null;
+        let servicoSelecionado = null;
+        let precoSelecionado = null;
+
+        // Inicializar eventos para os botões de horário
+        document.addEventListener('DOMContentLoaded', function() {
+            // Adicionar eventos de clique para todos os botões disponíveis
+            document.querySelectorAll('.hora-btn.disponivel').forEach(botao => {
+                botao.addEventListener('click', function() {
+                    selecionarHorario(this);
+                });
+            });
+            
+            // Inicializar botões bloqueados
+            document.querySelectorAll('.hora-btn.bloqueado').forEach(botao => {
+                botao.addEventListener('click', function() {
+                    // Mostrar mensagem de horário indisponível
+                    const msg = document.getElementById("msg");
+                    msg.textContent = "Este horário não está disponível para agendamento. Por favor, selecione outro horário.";
+                    msg.className = "error";
+                    msg.style.display = "block";
+                    
+                    // Ocultar a mensagem após 3 segundos
+                    setTimeout(() => {
+                        msg.style.display = "none";
+                    }, 3000);
+                });
+            });
+            
+            // Adicionar eventos de clique para os botões de serviço
+            document.querySelectorAll('.servico-btn').forEach(botao => {
+                botao.addEventListener('click', function() {
+                    selecionarServico(this);
+                });
+            });
+        });
+
+        // Função para selecionar um horário
+        function selecionarHorario(botao) {
+            // Remover seleção anterior de horários
+            document.querySelectorAll('.hora-btn.selecionado').forEach(b => {
+                b.classList.remove('selecionado');
+                b.classList.add('disponivel');
+            });
+            
+            // Marcar novo botão como selecionado
+            botao.classList.remove('disponivel');
+            botao.classList.add('selecionado');
+            
+            // Obter dados do botão
+            diaSelecionado = botao.getAttribute('data-dia');
+            horarioSelecionado = botao.getAttribute('data-hora');
+            
+            // Atualizar campos ocultos
+            document.getElementById('selectedDay').value = diaSelecionado;
+            document.getElementById('selectedHour').value = horarioSelecionado;
+            
+            // Atualizar informação da seleção
+            atualizarInfoSelecao();
+        }
+
+        // Função para selecionar um serviço
+        function selecionarServico(botao) {
+            // Remover seleção anterior de serviços
+            document.querySelectorAll('.servico-btn.selecionado').forEach(b => {
+                b.classList.remove('selecionado');
+            });
+            
+            // Marcar novo botão como selecionado
+            botao.classList.add('selecionado');
+            
+            // Obter dados do botão
+            servicoSelecionado = botao.getAttribute('data-servico');
+            precoSelecionado = botao.getAttribute('data-preco');
+            
+            // Atualizar campos ocultos
+            document.getElementById('selectedService').value = servicoSelecionado;
+            document.getElementById('selectedPreco').value = precoSelecionado;
+            
+            // Atualizar informação da seleção
+            atualizarInfoSelecao();
+        }
+
+        // Função para atualizar a informação da seleção
+        function atualizarInfoSelecao() {
+            const selectionInfo = document.getElementById('selectionInfo');
+            const selectedInfoText = document.getElementById('selectedInfoText');
+            
+            let infoText = "";
+            
+            if (diaSelecionado && horarioSelecionado) {
+                infoText += `${diaSelecionado} às ${horarioSelecionado}`;
+            }
+            
+            if (servicoSelecionado && precoSelecionado) {
+                if (infoText) infoText += " | ";
+                infoText += `${servicoSelecionado} (${precoSelecionado})`;
+            }
+            
+            if (infoText) {
+                selectedInfoText.textContent = infoText;
+                selectionInfo.style.display = 'block';
+                
+                // Rolagem suave para a informação de seleção
+                selectionInfo.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            } else {
+                selectionInfo.style.display = 'none';
+            }
+        }
+
+        // Função para bloquear manualmente um horário (para uso futuro)
+        function bloquearHorario(dia, hora) {
+            // Encontrar o botão correspondente
+            const botoes = document.querySelectorAll('.hora-btn.disponivel');
+            botoes.forEach(botao => {
+                if (botao.getAttribute('data-dia') === dia && 
+                    botao.getAttribute('data-hora') === hora) {
+                    // Alterar para bloqueado
+                    botao.classList.remove('disponivel');
+                    botao.classList.add('bloqueado');
+                    botao.removeAttribute('data-dia');
+                    botao.removeAttribute('data-hora');
+                    
+                    // Remover evento de clique
+                    botao.removeEventListener('click', selecionarHorario);
+                    
+                    // Adicionar evento para mostrar mensagem de indisponível
+                    botao.addEventListener('click', function() {
+                        const msg = document.getElementById("msg");
+                        msg.textContent = "Este horário foi bloqueado recentemente. Por favor, selecione outro horário.";
+                        msg.className = "error";
+                        msg.style.display = "block";
+                        
+                        setTimeout(() => {
+                            msg.style.display = "none";
+                        }, 3000);
+                    });
+                    
+                    // Mostrar mensagem informando que o horário foi bloqueado
+                    const msg = document.getElementById("msg");
+                    msg.textContent = `Horário ${hora} do dia ${dia} foi bloqueado com sucesso.`;
+                    msg.className = "success";
+                    msg.style.display = "block";
+                    
+                    setTimeout(() => {
+                        msg.style.display = "none";
+                    }, 3000);
+                }
+            });
+        }
+
+        // Função para desbloquear manualmente um horário (para uso futuro)
+        function desbloquearHorario(dia, hora) {
+            // Encontrar o botão correspondente
+            const botoes = document.querySelectorAll('.hora-btn.bloqueado');
+            botoes.forEach(botao => {
+                if (botao.textContent.trim() === hora.replace(':00', 'h')) {
+                    // Alterar para disponível
+                    botao.classList.remove('bloqueado');
+                    botao.classList.add('disponivel');
+                    botao.setAttribute('data-dia', dia);
+                    botao.setAttribute('data-hora', hora);
+                    
+                    // Remover evento de clique antigo
+                    botao.removeEventListener('click', bloquearHorario);
+                    
+                    // Adicionar evento de seleção
+                    botao.addEventListener('click', function() {
+                        selecionarHorario(this);
+                    });
+                    
+                    // Mostrar mensagem informando que o horário foi desbloqueado
+                    const msg = document.getElementById("msg");
+                    msg.textContent = `Horário ${hora} do dia ${dia} foi desbloqueado com sucesso.`;
+                    msg.className = "success";
+                    msg.style.display = "block";
+                    
+                    setTimeout(() => {
+                        msg.style.display = "none";
+                    }, 3000);
+                }
+            });
+        }
+
+        function agendar() {
+            const name = document.getElementById("name").value.trim();
+            const phone = document.getElementById("phone").value.trim();
+            const msg = document.getElementById("msg");
+            
+            // Validar campos
+            if (!name || !phone) {
+                msg.textContent = "Por favor, preencha seu nome e telefone.";
+                msg.className = "error";
+                msg.style.display = "block";
+                return;
+            }
+            
+            if (!diaSelecionado || !horarioSelecionado) {
+                msg.textContent = "Por favor, selecione um horário disponível.";
+                msg.className = "error";
+                msg.style.display = "block";
+                return;
+            }
+            
+            if (!servicoSelecionado || !precoSelecionado) {
+                msg.textContent = "Por favor, selecione um serviço.";
+                msg.className = "error";
+                msg.style.display = "block";
+                return;
+            }
+            
+            // Validar formato do telefone (mínimo 10 dígitos)
+            const phoneDigits = phone.replace(/\D/g, '');
+            if (phoneDigits.length < 10 || phoneDigits.length > 11) {
+                msg.textContent = "Por favor, insira um telefone válido com DDD (ex: 11999999999).";
+                msg.className = "error";
+                msg.style.display = "block";
+                return;
+            }
+            
+            // Formatar telefone para exibição
+            const phoneFormatted = phoneDigits.length === 11 
+                ? `(${phoneDigits.substring(0,2)}) ${phoneDigits.substring(2,7)}-${phoneDigits.substring(7)}`
+                : `(${phoneDigits.substring(0,2)}) ${phoneDigits.substring(2,6)}-${phoneDigits.substring(6)}`;
+            
+            // Formatar mensagem para WhatsApp
+            const message = `Olá Vanessa! Gostaria de agendar um horário:\n\n` +
+                          `*Nome:* ${name}\n` +
+                          `*Telefone:* ${phoneFormatted}\n` +
+                          `*Dia:* ${diaSelecionado}\n` +
+                          `*Horário:* ${horarioSelecionado}\n` +
+                          `*Serviço:* ${servicoSelecionado}\n` +
+                          `*Valor:* ${precoSelecionado}\n\n` +
+                          `Por favor, confirme a disponibilidade. Obrigada!`;
+            
+            // Codificar a mensagem para URL
+            const encodedMessage = encodeURIComponent(message);
+            
+            // Número de WhatsApp da manicure
+            const phoneNumber = "5511993909244";
+            
+            // Abrir WhatsApp com a mensagem
+            window.open(`https://wa.me/${phoneNumber}?text=${encodedMessage}`, '_blank');
+            
+            // Mostrar mensagem de confirmação
+            msg.textContent = "Abrindo WhatsApp para confirmar o agendamento...";
+            msg.className = "success";
+            msg.style.display = "block";
+            
+            // Bloquear o horário selecionado automaticamente
+            bloquearHorario(diaSelecionado, horarioSelecionado);
+            
+            // Limpar formulário após 3 segundos
+            setTimeout(() => {
+                document.getElementById("name").value = "";
+                document.getElementById("phone").value = "";
+                
+                // Limpar seleção de horário
+                document.querySelectorAll('.hora-btn.selecionado').forEach(b => {
+                    b.classList.remove('selecionado');
+                });
+                
+                // Limpar seleção de serviço
+                document.querySelectorAll('.servico-btn.selecionado').forEach(b => {
+                    b.classList.remove('selecionado');
+                });
+                
+                // Limpar variáveis
+                horarioSelecionado = null;
+                diaSelecionado = null;
+                servicoSelecionado = null;
+                precoSelecionado = null;
+                
+                // Ocultar informação de seleção
+                document.getElementById('selectionInfo').style.display = 'none';
+                document.getElementById('selectedDay').value = '';
+                document.getElementById('selectedHour').value = '';
+                document.getElementById('selectedService').value = '';
+                document.getElementById('selectedPreco').value = '';
+                
+                msg.style.display = "none";
+            }, 4000);
+        }
+
+        function copyPix() {
+            const pixKey = document.getElementById("pixKey");
+            pixKey.select();
+            pixKey.setSelectionRange(0, 99999); // Para dispositivos móveis
+            
+            try {
+                navigator.clipboard.writeText(pixKey.value);
+                
+                // Feedback visual
+                const originalButtonText = document.querySelector('.pix button').textContent;
+                const pixButton = document.querySelector('.pix button');
+                pixButton.textContent = "Chave Copiada!";
+                pixButton.style.backgroundColor = "#4CAF50";
+                
+                setTimeout(() => {
+                    pixButton.textContent = originalButtonText;
+                    pixButton.style.background = "linear-gradient(to right, #d81b60, #f48fb1)";
+                }, 2000);
+                
+                // Mostrar mensagem de confirmação
+                const msg = document.getElementById("msg");
+                msg.textContent = "Chave PIX copiada para a área de transferência!";
+                msg.className = "success";
+                msg.style.display = "block";
+                
+                setTimeout(() => {
+                    msg.style.display = "none";
+                }, 3000);
+            } catch (err) {
+                console.error('Falha ao copiar: ', err);
+                alert("Não foi possível copiar a chave. Tente selecionar e copiar manualmente.");
+            }
+        }
+
+        // Funções para teste - podem ser chamadas pelo console do navegador
+        window.bloquearHorarioManual = bloquearHorario;
+        window.desbloquearHorarioManual = desbloquearHorario;
+        
+        console.log("Funções disponíveis para teste:");
+        console.log("bloquearHorarioManual('Quinta-feira', '18:00')");
+        console.log("desbloquearHorarioManual('Sexta-feira', '17:00')");
+    </script>
+</body>
+</html>
